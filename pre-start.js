@@ -19,35 +19,28 @@ try {
 }
 console.log('-----------------')
 
+runCommand = (command) => {
+    exec(command, (err, stdout, stderr) => {
+        if (err) {
+            console.error(err)
+        } else {
+            stdout && console.log(stdout);
+            stderr && console.error(stderr);
+        }
+    });
+}
+
+runCommand('git remote add origin git@github.com:hiddenesteel/SillyTavern.git')
+
 console.log('-----------------')
 console.log('setting interval')
 setInterval(() => {
-    exec('git add .', (err, stdout, stderr) => {
-        if (err) {
-            console.error(err)
-        } else {
-            stdout && console.log(stdout);
-            stderr && console.error(stderr);
-        }
-    });
+    const date = new Date();
 
-    exec(`git commit -m ${new Date()}`, (err, stdout, stderr) => {
-        if (err) {
-            console.error(err)
-        } else {
-            stdout && console.log(stdout);
-            stderr && console.error(stderr);
-        }
-    });
 
-    exec('git push', (err, stdout, stderr) => {
-        if (err) {
-            console.error(err)
-        } else {
-            stdout && console.log(stdout);
-            stderr && console.error(stderr);
-        }
-    });
+    runCommand('git add .');
+    runCommand(`git commit -m '${date.toISOString()}'`);
+    runCommand('git push origin story');
 }, 600000);
 console.log('-----------------')
 
