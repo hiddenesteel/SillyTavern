@@ -9,7 +9,7 @@ whitelistMode: true
 whitelist:
   - 127.0.0.1
 # Toggle basic authentication for endpoints
-basicAuthMode: false
+basicAuthMode: true
 # Basic authentication credentials
 basicAuthUser:
   username: user

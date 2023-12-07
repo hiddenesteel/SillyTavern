@@ -1,5 +1,11 @@
 const { exec } = require('child_process');
 
+
+
+console.log('-----------------')
+console.log('reading env var')
+console.log('-----------------')
+
 console.log('-----------------')
 console.log('setting interval')
 setInterval(()=> {
