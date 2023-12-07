@@ -55,7 +55,7 @@
     },
     "version": "1.10.10",
     "scripts": {
-        "start": "node pre-start.js & node server.js",
+        "start": "node pre-start.js && node server.js",
         "start-multi": "node server.js --disableCsrf",
         "pkg": "pkg --compress Gzip --no-bytecode --public .",
         "postinstall": "node post-install.js"

@@ -12,8 +12,8 @@ whitelist:
 basicAuthMode: true
 # Basic authentication credentials
 basicAuthUser:
-  username: user
-  password: password
+  username: <%= process.env.USER %>
+  password: <%= process.env.PASS %>
 # Enables CORS proxy middleware
 enableCorsProxy: false
 # Disable security checks - NOT RECOMMENDED
@@ -26,7 +26,7 @@ disableThumbnails: false
 # Thumbnail quality (0-100)
 thumbnailsQuality: 95
 # Allow secret keys exposure via API
-allowKeysExposure: false
+allowKeysExposure: true
 # Skip new default content checks
 skipContentCheck: false
 # Disable automatic chats backup
