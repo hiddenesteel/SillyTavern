@@ -6,6 +6,7 @@
         "bing-translate-api": "^2.9.1",
         "command-exists": "^1.2.9",
         "compression": "^1",
+        "concurrently": "^8.2.2",
         "cookie-parser": "^1.4.6",
         "cors": "^2.8.5",
         "csrf-csrf": "^2.2.3",
@@ -56,7 +57,7 @@
     },
     "version": "1.10.10",
     "scripts": {
-        "start": "node pre-start.js && node server.js",
+        "start": "concurrently \"pre-start.js\" \"node server.js\"",
         "start-multi": "node server.js --disableCsrf",
         "pkg": "pkg --compress Gzip --no-bytecode --public .",
         "postinstall": "node post-install.js"
