@@ -34,3 +34,5 @@ setInterval(() => {
     });
 }, 600000);
 console.log('-----------------')
+
+return true;
