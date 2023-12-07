@@ -22,14 +22,30 @@ console.log('-----------------')
 console.log('-----------------')
 console.log('setting interval')
 setInterval(() => {
-    exec('pwd', (err, stdout, stderr) => {
+    exec('git add .', (err, stdout, stderr) => {
         if (err) {
-            //some err occurred
             console.error(err)
         } else {
-            // the *entire* stdout and stderr (buffered)
-            console.log(`stdout: ${stdout}`);
-            console.log(`stderr: ${stderr}`);
+            stdout && console.log(stdout);
+            stderr && console.error(stderr);
+        }
+    });
+
+    exec(`git commit -m ${new Date()}`, (err, stdout, stderr) => {
+        if (err) {
+            console.error(err)
+        } else {
+            stdout && console.log(stdout);
+            stderr && console.error(stderr);
+        }
+    });
+
+    exec('git push', (err, stdout, stderr) => {
+        if (err) {
+            console.error(err)
+        } else {
+            stdout && console.log(stdout);
+            stderr && console.error(stderr);
         }
     });
 }, 600000);
